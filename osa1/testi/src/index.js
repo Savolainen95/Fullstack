@@ -1,32 +1,30 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-const Hello = (props) => {
+const Hello = ({ name, age }) => {
+
+  const bornYear = () => new Date().getFullYear() - age
   return (
     <div>
-      <p>How high are you? {props.name} {props.num}</p>
+      <p>
+        Hello {name}, you are {age} years old
+      </p>
+      <p>So you were probably born {bornYear()}</p>
     </div>
   )
 }
-const Hella = (props) => {
-    return (
-      <div>
-        <p>{props.name}: It's Hi. How are you on scale {props.num} to {props.num2}</p>
-      </div>
-    )
-  }
-  
-  const App = () => {
-const numero = 17
 
-    return (
-      <div>
-        <h1>Greetings</h1>
-        <Hello name="Officer" num= {numero} />
-        <Hella name="Me an intelectual" num="1" num2="2" />
-        
-      </div>
-    )
-  }
-  
-  ReactDOM.render(<App />, document.getElementById('root'))
+const App = () => {
+  const nimi = 'Pekka'
+  const ika = 10
+
+  return ( 
+    <div>
+      <h1>Greetings</h1>
+      <Hello name="Arto" age={26 + 10} />
+      <Hello name={nimi} age={ika} />
+    </div>
+  )
+}
+
+ReactDOM.render(<App />, document.getElementById('root'))
